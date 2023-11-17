@@ -51,6 +51,17 @@ h1 {
   box-shadow: 5px 5px hsl(236, 9%, 61%);
   border-radius: 0 0 .5rem .5rem;
 }
+
+.drop {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: .8125rem;
+  font-weight: 100;
+}
+
+/*.drop {
+  color: hsl(236, 9%, 61%);
+}
 /*.dark {
   background-color: black;
   height: 100vh;

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import Footer from './Footer'
@@ -19,11 +19,16 @@ function App() {
     let lightBg = document.querySelector("#light-bg");
     let darkBg = document.querySelector("#dark-bg");
 
+    //let Ddrop = document.querySelector(".Ddrop");
+    //let Ddrop = document.querySelector(".drop");
+
     let theme = document.querySelector("#root");
 
 
     moon.classList.toggle("hidden");
     sun.classList.toggle("hidden");
+    //drop.classList.toggle("hidden")
+    //Ddrop.classList.toggle("hidden")
     theme.classList.toggle("dark");
     lightBg.classList.toggle("hidden");
     darkBg.classList.toggle("hidden");
@@ -61,15 +66,20 @@ function App() {
               />
             </div>
             <TodoInput 
+              inputs={inputs} 
+              setInput={setInput} 
+              items={items} 
+              setItems={setItems}
               type="text"
             />
-            <div className='ItemFooter'>
               <div className="todo-list">
                 <TodoItem 
                   items={items} 
-                  //setItems={setItems} 
+                  setItems={setItems} 
                 />
               </div>
+            <div className='ItemFooter'>
+
               <Footer 
                 inputs={inputs} 
                 clearCompletedHandle={clearCompletedHandle}
@@ -80,9 +90,8 @@ function App() {
           
             </div>
           </div>
-        
+          <div className="drop Ddrop">Drag and drop to render list</div>
         </main>
-  
       </section>
     </div>
   )

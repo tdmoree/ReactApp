@@ -2,7 +2,7 @@ import React from 'react'
 import FooterLink from './FooterLink'
 
 
-    function Footer({ inputs, clearCompletedHandle }) {
+    function Footer({ items, clearCompletedHandle }) {
    // const [item, setItem] = useState("");
 
   
@@ -10,7 +10,7 @@ import FooterLink from './FooterLink'
         <div>
             <div className='Footer'>
                 <div className='items-left'>
-                    {inputs}items left
+                    {items}items left
                 </div>
                 <div className='Footerlink'>
                     <FooterLink 
