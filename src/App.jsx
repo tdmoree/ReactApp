@@ -1,16 +1,17 @@
 import { useState } from 'react'
+import { useDrag, useDrop } from "react-dnd";
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import Footer from './Footer'
-//import FooterLink from './FooterLink'
 import { tasks } from './data'
-import { v4 as uuidv4 } from 'uuid'
 import './App.css'
+//import FooterLink from './FooterLink'
+
 
 function App() {
-  const [items, setItems] = useState(tasks);
-  const [inputs, clearCompletedHandle, setInput] = useState();
-  
+  const [ items, setItems ] = useState(tasks);
+  const [inputs, clearCompletedHandler, setInput] = useState();
+  const [numofInputs, setnumofInputs] = useState(0);
 
   const hanldeIcon = () => {
     let moon = document.querySelector(".moon");
@@ -55,42 +56,54 @@ function App() {
             <div className="Header">
               <h1 className="Title">todo</h1>
               <img className='switch moon' 
-                src="src/assets/icon-moon.svg" 
+                src="./src/assets/icon-moon.svg" 
                 alt='/' 
                 onClick={() => hanldeIcon()} 
               />
               <img className="switch sun hidden" 
-                src="src/assets/icon-sun.svg" 
+                src="./src/assets/icon-sun.svg" 
                 alt='/' 
                 onClick={() => hanldeIcon()} 
               />
             </div>
             <TodoInput 
               inputs={inputs} 
-              setInput={setInput} 
-              items={items} 
+              setInput={setInput}
+              setnumofInputs={setnumofInputs} 
+              //items={items}
               setItems={setItems}
+              numofInputs={numofInputs}
               type="text"
             />
               <div className="todo-list">
-                <TodoItem 
+              <TodoItem 
                   items={items} 
-                  setItems={setItems} 
+                  //key={id}
+                  //isCompleted={isCompleted}
+                  //title={title} 
+                  //key={title.id}
+                 // {...title}
+                  //id={id}
+                  //toggleMarkAsCompletedHandler={toggleMarkAsCompletedHandler}
+                  //deleteTaskHandler={deleteTaskHandler}
+                  //onDragStart={(e) => dragStart(e, index)}
+                  //onDragEnter={(e) => dragEnter(e, index)}
+                  //onDragEnd={drop}
                 />
               </div>
             <div className='ItemFooter'>
 
               <Footer 
-                inputs={inputs} 
-                clearCompletedHandle={clearCompletedHandle}
-               // AllHandle={AllHandle} 
-               // ActiveHandle={ActiveHandle} 
-               // CompletedHandle={CompletedHandle} 
+                numofInputs={numofInputs} 
+                clearCompletedHandler={clearCompletedHandler}
+                // AllHandler={AllHandler} 
+                // ActiveHandler={ActiveHandler} 
+                // CompletedHandler={CompletedHandler} 
               />
           
             </div>
           </div>
-          <div className="drop Ddrop">Drag and drop to render list</div>
+          <div className="drop Ddrop"> Drag and drop to render list </div>
         </main>
       </section>
     </div>

@@ -123,6 +123,8 @@ input[type=text]:focus {
   /*text-align: center;*/
 }
 
+@media only screen and (max-width: 704px) {}
+
 /*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

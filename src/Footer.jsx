@@ -2,7 +2,7 @@ import React from 'react'
 import FooterLink from './FooterLink'
 
 
-    function Footer({ items, clearCompletedHandle }) {
+    function Footer({ numofInputs, clearCompletedHandler, AllHandler, ActiveHandler, CompletedHandler }) {
    // const [item, setItem] = useState("");
 
   
@@ -10,13 +10,16 @@ import FooterLink from './FooterLink'
         <div>
             <div className='Footer'>
                 <div className='items-left'>
-                    {items}items left
+                    {numofInputs} items left
                 </div>
                 <div className='Footerlink'>
-                    <FooterLink 
-                    />
+                    <FooterLink
+                        //AllHandler={AllHandler} 
+                        //ActiveHandler={ActiveHandler} 
+                        //CompletedHandler={CompletedHandler}
+                     />
                 </div>
-                <div onClick={clearCompletedHandle} className='completed switch'>
+                <div onClick={clearCompletedHandler} className='completed switch'>
                     clear completed
                 </div>
             </div>

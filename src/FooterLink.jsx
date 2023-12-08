@@ -8,7 +8,10 @@ import React from 'react'
     return (
         <div>
             <div className='FooterLink'>
-                <div onClick={AllHandle} className='All switch'>
+                <div 
+                    onClick={AllHandle} 
+                    className='All switch'
+                >
                     All
                 </div>
                 <div onClick={ActiveHandle} className='Active switch'>

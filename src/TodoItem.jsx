@@ -1,29 +1,68 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-function TodoItem({ items }) {
-   // const [item, setItem] = useState("");
-
-  
-    return (
-        <div>
-            {items.map(({ id, title, isCompleted }) => ( 
-                <div className="Item switch" key={id}>
-                    <div className='circle'></div>
-                    <div className="title">
-                        {title}
+const TodoItem = forwardRef(
+    (
+        { 
+            items,
+            id,
+            index,
+           isCompleted,
+            title,
+            toggleMarkAsCompletedHandler,
+            deleteTaskHandler, 
+            onDragStart,
+            onDragEnter,
+            onDragEnd,
+        },
+        ref
+    ) => {
+        return (
+            <div>
+                {items.map(({ title, index }) => ( 
+                    <div 
+                        className="Item switch"
+                        onDragStart={onDragStart}
+                        onDragEnter={onDragEnter}
+                        onDragEnd={onDragEnd}
+                        draggable
+                        // key={id}
+                        ref={ref}
+                    >
+                        <div 
+                            type="checkbox"
+                            checked={isCompleted}
+                            onChange={() => 
+                                toggleMarkAsCompletedHandler(index) 
+                            }
+                            className='circle'
+                        >
+                        </div>
+                        <div
+                            onChange={() =>
+                                toggleMarkAsCompletedHandler(index)
+                            }
+                            className="title">
+                            {title}
+                        </div>
+                        <div 
+                            onClick={() => { 
+                                deleteTaskHandler(id) 
+                            }} 
+                            className="deleteIcon"
+                        >
+                            <img 
+                                src="./src/assets/icon-cross.svg" 
+                                alt='/' 
+                            />
+                            
+                        </div>
+    
                     </div>
-                    <div className="deleteIcon">
-                        <img 
-                            src="src/assets/icon-cross.svg" 
-                            alt='/' 
-                        />
-                        {isCompleted}
-                    </div>
-
-                </div>
-            ))}
-        </div>
-    )
-  }
+                ))}
+            </div>
+        )
+    }
+            
+)
   
 export default TodoItem;
