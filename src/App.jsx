@@ -56,12 +56,12 @@ function App() {
             <div className="Header">
               <h1 className="Title">todo</h1>
               <img className='switch moon' 
-                src="./src/assets/icon-moon.svg" 
+                src="/assets/icon-moon.svg" 
                 alt='/' 
                 onClick={() => hanldeIcon()} 
               />
               <img className="switch sun hidden" 
-                src="./src/assets/icon-sun.svg" 
+                src="/assets/icon-sun.svg" 
                 alt='/' 
                 onClick={() => hanldeIcon()} 
               />
